@@ -1,0 +1,919 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html
+{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #eee;
+    background-image: url(images/dust_scratches.png)
+}
+}
+
+body
+{
+    width: 100%;
+    height: 100%;
+    background-color: #4f4f4f;
+    background-size: cover;
+}
+
+section{
+    padding: 6rem 0;
+}
+.contain
+{
+   width: 90%;
+    max-height: 120rem;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+.section-heading{
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+.secton-heading h1{
+    font-size: 3.5rem;
+    color: rgba(255,255,255, .3);
+    text-transform: uppercase;
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.section-heading h1::before,
+.section-heading h1::after
+{
+   content: '';
+    position: absolute;
+    bottom: -.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255,255,255, 0.75);
+}
+
+.has-margin-right
+{
+    margin-right: 5rem;
+}
+
+.section-header h1::before
+{
+    width: 10rem;
+    height: 3px;
+    border-radius: .8rem;
+}
+
+.section-header h1::after
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    bottom: -1rem;
+}
+
+
+.secton-header h6{
+    font-size: 1.6rem;
+    font-weight: 300;
+    
+}
+
+a
+{
+    text-decoration: none;
+    color: #eee;
+}
+
+p
+{
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+img{
+    width: 50%;
+    padding-left: 30%;
+}
+
+header
+{
+    width: 100%;
+    height: 100vh;
+}
+
+.top-nav
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: -100vh;
+    z-index: 50;
+    background-color: #70205E;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    transition: all 650ms cubic-bezier(1,0,0,1);
+    
+}
+
+.nav-list
+{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li
+{
+    margin: 0 2rem;
+}
+
+.nav-link
+{
+    font-family: 'The Historia Demo';
+    font-size: 5rem;
+    padding: 1rem;
+    background-color: #70205E;
+    color: wheat;
+}
+
+.nav-link:hover,
+.nav-link:focus{
+    background: linear-gradient(to top, #ffe838, #fd57bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-nav.open
+{
+    top: 0;
+    border-radius: initial;
+}
+
+.menu-toggler
+{
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    width: 5rem;
+    height: 4rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1500;
+    transition: transform 650ms ease-out;
+    
+}
+
+.menu-toggler.open
+{
+   transform: rotate(-45deg);
+}
+
+.bar
+{
+    background: linear-gradient(to right, #753636, #fd57bf);
+    width: 100%;
+    height: 4px;
+    border-radius: .8rem;
+}
+
+.bar.half
+{
+    width: 50%;
+
+}
+
+.bar.start{
+    transform-origin: right;
+    transition: transform 650ms cubic-bezier(0.54, -0.081, 0.57, 0.57);
+}
+
+.open .bar.start
+{
+    transform: rotate(-450deg) translateX(.8rem);
+}
+
+.bar.end{
+    align-self: flex-end;
+    transform-origin: left;
+    transition: transform 650ms cubic-bezier(0.54, -0.081, 0.57, 0.57);
+}
+
+.open .bar.end
+{
+    transform: rotate(-450deg) translateX(-.8rem);
+}
+
+.landing-text 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+   
+}
+
+.landing-text h1
+{
+    font-size: 20rem;
+    font-family: 'The Historia Demo';
+    background: linear-gradient(to top, #753636, #fd57bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.landing-text h6
+{
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+    color: #722620;
+    padding-left: 60px;
+}
+
+.about .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.about-heading{
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0;
+    margin-bottom: 6rem; 
+    color: black;
+}
+.about-heading h1
+{
+    font-size: 10rem;
+    opacity: .3;
+}
+
+.about-heading h6
+{
+    font-size: 3rem;
+    font-weight: 300;
+    color: black;
+}
+
+.profile-img{
+    flex: 1;
+    margin-right: 5rem;
+    padding-top: 12rem;
+}
+
+.about-details{
+    flex: 1;
+    color: black;
+}
+
+.services h1{
+    font-size: 3rem;
+}
+
+.services h6{
+    font-size: 2rem;
+}
+
+
+.my-skills
+{
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+}
+
+.skill h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2rem - 2px 2rem 0;
+    
+}
+
+.icon-container{
+    width: 10rem;
+    height: 10rem;
+    border: 3px solid yellow;
+    background-color: pink;
+    margin-bottom: 2rem;
+    display: flex;
+    transform: rotate(45deg);
+
+}
+
+.icon-container i{
+    color: yellow;
+    font-size: 5rem;
+    margin: auto;
+    transform: rotate(-45deg);
+    }
+
+.portfolio-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.portfolio-item: last-child
+{
+    margin-bottom: 0;
+}
+
+
+.portfolio-img {
+    flex: 1;
+}
+
+
+.portfolio-description {
+    flex: 1;
+}
+
+.porfolio-description h6
+{
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 1rem 0;
+   
+}
+
+
+.porfolio-description h6
+{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0.3;
+    text-align: center;
+}
+
+.portfolio-description .cta
+{
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: blue;
+    transition: color 650ms;
+}
+
+.portfolio-description .cta:hover{
+    color: blue;
+}
+
+.contact
+{
+/*
+    background-color: black;
+    
+*/
+    color: black;
+}
+
+form{
+    width: 70%;
+    margin: 0 auto;
+}
+
+form label
+{
+    font-size: 1.5rem;
+}
+
+input,
+select,
+textarea
+{
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 5px;
+    border: none;
+    outline-color: deeppink;
+}
+
+input[type="submit"]
+{
+    width: initial;
+    background-color: deeppink;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: .8rem;
+    cursor: pointer;
+    transition: background-color 650ms;;
+}
+
+input[type="submit"]:hover
+{
+    color: black;
+    border-color: yellow;
+    
+}
+
+
+
+.up{
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    top: -2.5rem;
+    right: 5rem;
+    border-radius: 100%;
+    display: flex;
+    animation: pulse 2s inifinate;
+    cursor: pointer;
+}
+
+.up 1{
+    color: black;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.copyright p
+{
+    font-size: 1.4rem;
+}
+
+@keyframes pulse
+0%{
+    box-shadow: 0 0 0 0 rgba(253, 87, 191, 0.99);
+}
+
+70%{
+    box-shadow: 0 0 0 0 rgba(253, 87, 191, 0);
+}
+
+100%{
+    box-shadow: 0 0 0 0 rgba(253, 87, 191, 0);
+}
+
+@media screen and (max-width: 760px)
+{
+  body
+    {
+        
+    background: url(images/background.png) no-repeat center fixed;
+    background-size: cover;
+    
+    }
+    
+    .landing-text h1
+    {
+        font-size: 15rem;
+        font-family: 'The Historia Demo';
+    
+    }
+    
+    .landing-text h6
+    {
+        font-size: 1.7rem;
+    }
+    
+    .nav-list
+    {
+        flex-direction: column;
+    }
+    
+    li
+    {
+        margin: 2rem 0;
+    }
+    .nav-link
+    {
+        font-size: 4.5rem;
+    }
+    
+    .about-heading h1 
+    {
+        font-size: 8rem;
+    }
+    
+    .section-heading h1
+    {
+        font-size: 3rem;
+    }
+    
+    .about-details .nav-list
+    {
+        flex-direction: initial;
+    }
+    
+    .about-details li
+    {
+        margin: 0.2rem;
+    }
+    
+    .icon-container
+    {
+       width: 7rem;
+        height: 7rem;
+    }
+    
+    .icon-container i
+    {
+        font-size: 4rem;
+    }
+    
+    
+    
+}
+
+@media screen and (max-width: 600px)
+{
+    .menu-toggler
+    {
+        top: 2rem;
+        right: 2rem;
+    }
+    
+    .landing-text h1
+    {
+        font-size: 8rem;
+    }
+    .landing-text h6
+    {
+        font-size: 1.4rem;
+    }
+    
+    .nav-link
+    {
+        font-size: 3.5rem;
+    }
+    
+    .about .container
+    {
+        flex-direction: column;
+    }
+    
+    .profile-img
+    {
+        margin: 0 0 7rem 0;
+    }
+    
+    .portfolio-item
+    {
+        flex-direction: column;
+    }
+    
+    .portfolio-img
+    {
+        margin: 0 0 2rem 0;
+        order: 1;
+    }
+    
+    .portfolio-description
+    {
+        margin: 0;
+        order: 2;
+    }
+    
+    form
+    {
+        width: 100%;
+    }
+    
+    .up
+    {
+        right: 2rem;
+    }
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-align: right
+}
+
+
+/*The grid section*/
+
+.services1
+{
+    padding: 0;
+    
+}
+
+.title-heading
+{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+    color: black;
+    font-size: 5rem;
+}
+
+.title-heading h3
+{
+    font-size: 5rem;
+    
+}
+
+.title-heading h1
+{
+    font-family: sans-serif;
+    font-size: 2rem;
+    margin: .5rem 0 1rem;
+}
+
+.title-heading p
+{
+    text-transform: lowercase;
+}
+
+.activities-grid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+    grid-gap:2.5rem;
+    font-weight: 500;
+}
+
+.activities-grid-item
+{
+    height: 40rem;
+    padding: 5rem;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    font-weight: 800;
+}
+
+
+.activities-grid-item:: before
+{
+/*
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8)100%);
+    z-index: -1;
+*/
+    
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    background-image:  linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8)100%);
+/*
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+*/
+   
+}
+
+.machine-learning
+{
+  background: url(images/machine4.jpg) center no-repeat;  
+   
+}
+
+.web-development
+{
+  background: url(images/web-development3.jpg) center no-repeat; 
+
+}
+
+.java
+{
+  background: url(images/fullStack2.jpg) center no-repeat;  
+
+}
+
+.activities-grid-item i
+{
+    font-size: 4rem;
+    color: deeppink;
+}
+
+activities-grid-item h1
+{
+    font-family: sans-serif;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+
+.portfolio2
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.portfolio2 .box: before
+{
+    content: '';
+    width: 50%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,.2);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.portfolio2 .box
+{
+    position:relative;
+    width: 450px;
+    padding: 40px;
+    color: black;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    border-radius: 4px;
+    margin: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    
+    
+}
+
+
+.portfolio2 .box .icon
+{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: 700;
+    transition: 1s;
+}
+
+.portfolio2 .box:nth-child(1) .icon
+{
+    box-shadow:  0 0 0 0 #e91e63;
+    background: #e91e63;
+}
+
+.portfolio2 .box:nth-child(1):hover .icon
+{
+    box-shadow:  0 0 0 400px #e91e63;
+}
+
+.portfolio2 .box:nth-child(2) .icon
+{
+    box-shadow:  0 0 0 0 #23e629;
+    background: #23e629;
+}
+
+.portfolio2 .box:nth-child(2):hover .icon
+{
+    box-shadow:  0 0 0 400px #23e629;
+}
+
+
+.portfolio2 .box:nth-child(3) .icon
+{
+    box-shadow:  0 0 0 0 #2196f3;
+    background: #2196f3;
+}
+
+.portfolio2 .box:nth-child(3):hover .icon
+{
+    box-shadow:  0 0 0 400px #2196f3;
+}
+
+.portfolio2 .box .content
+{
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.portfolio2 .box:hover .content
+{
+   color:  #fff;
+}
+
+.container .box .content h3
+{
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.container .box .content p
+{
+    margin: 0;
+    padding: 0;
+}
+
+a
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    margin-top: 20px;
+    box-shadow: 0 2px5px rgba(0,0,0,0);
+}
+
+.header1
+{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+    color: black;
+    font-size: 5rem;
+   
+}
+
+.header1 h3
+{
+    font-size: 2rem;
+    
+}
+
+.header1 h1
+{
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin: .5rem 0 1rem;
+}
+
+.portfolio2 .container1{
+  
+    align-items: center;
+   
+    
+}
+
+.contact h1
+{
+    font-size: 6rem;
+    opacity: 0.3;
+    text-transform: uppercase;
+}
+
+.contact h2
+{
+    font-size: 2rem;
+}
+
+.portfolio
+{
+    padding-bottom: 0rem;
+    padding-top: 0rem;
+}
