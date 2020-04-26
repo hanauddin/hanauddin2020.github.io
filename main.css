@@ -662,6 +662,11 @@ ul{
     font-weight: 500;
 }
 
+.profile-img
+{
+    max-width:100%;
+}
+
 .activities-grid-item
 {
     height: 40rem;
