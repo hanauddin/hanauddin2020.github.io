@@ -33,10 +33,6 @@ section{
     position: relative;
 }
 
-.drawing
-{
-    background: url(images/drawing3.png) center no-repeat;
-}
 
 
 
@@ -720,6 +716,12 @@ ul{
 */
    
 }
+
+.drawing
+{
+    background: url(images/drawing3.png) center no-repeat;
+}
+
 
 .machine-learning
 {
