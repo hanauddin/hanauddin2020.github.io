@@ -716,7 +716,10 @@ ul{
 */
    
 }
-
+.bunny
+{
+    background: url(images/bunny.png) center no-repeat;
+}
 
 .fox
 {
