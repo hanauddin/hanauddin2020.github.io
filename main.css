@@ -717,6 +717,12 @@ ul{
    
 }
 
+
+.fox
+{
+    background: url(images/fox.png) center no-repeat;
+}
+
 .drawing
 {
     background: url(images/drawing3.png) center no-repeat;
