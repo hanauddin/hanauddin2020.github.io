@@ -1,210 +1,272 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-     <meta name="referrer" content="origin">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hana Uddin</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Fragmentation Game</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Light gray background */
+        }
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .disk-grid {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            gap: 2px;
+            border: 2px solid #94a3b8;
+            padding: 4px;
+            border-radius: 0.5rem;
+            background-color: #e2e8f0;
+        }
+        .sector {
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.15s ease, transform 0.1s ease;
+            user-select: none;
+        }
+        .sector:active {
+            transform: scale(0.98);
+        }
+        .sector-fixed {
+            background-color: #6366f1; /* Indigo for existing files */
+            color: white;
+            cursor: default;
+        }
+        .sector-empty {
+            background-color: #cbd5e1; /* Light gray for empty, clickable */
+            color: #475569;
+        }
+        .sector-file6 {
+            background-color: #10b981; /* Green for File 6 */
+            color: white;
+        }
+        .sector-file7 {
+            background-color: #ef4444; /* Red for File 7 */
+            color: white;
+        }
+        .flash-success {
+            animation: flashSuccess 0.5s ease-in-out;
+        }
+        .flash-error {
+            animation: flashError 0.5s ease-in-out;
+        }
+        @keyframes flashSuccess {
+            0% { box-shadow: 0 0 15px #10b981; }
+            100% { box-shadow: none; }
+        }
+        @keyframes flashError {
+            0% { box-shadow: 0 0 15px #ef4444; }
+            100% { box-shadow: none; }
+        }
+    </style>
 </head>
+<body class="p-4">
 
-<body>
-    <header>
-        <div class="menu-toggler">
-            <div class="bar half start"></div>
-            <div class="bar"></div>
-            <div class="bar half end"></div>
+    <div class="container">
+        <h1 class="text-3xl font-extrabold text-gray-800 mb-2">Hard Disk Fragmentation Challenge</h1>
+        <p class="text-gray-600 mb-6">Simulate storing File 6 (11 sectors) and File 7 (8 sectors) onto the fragmented disk.</p>
 
-        </div>
-        <nav class="top-nav">
-            <ul class="nav-list">
-                <li>
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                  <li>
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                  <li>
-                    <a href="#services1" class="nav-link">Services</a>
-                </li>
-                  <li>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                </li>
-                  <li>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        
-        
-        <div class="landing-text">
-            <h1>Hana Uddin</h1>
-            <h6>Computer Science undergraduate</h6>
-        </div>
-    </header>
-    
-    <section class="about" id="about">
-        <div class="container">
-<!--
-            <div class="profile-img">
-                <img src="images/drawing.jpg" alt="demon girl drawing">
+        <!-- Current Status and Instructions -->
+        <div class="mb-6 p-4 rounded-lg bg-indigo-50 border border-indigo-200">
+            <div id="status-message" class="text-lg font-semibold text-gray-700 mb-3">
+                Current Task: <span id="current-file-display" class="text-indigo-600">File 6</span> (Needs <span id="required-sectors">11</span> sectors)
             </div>
-
--->
-   <div class="about-details">
-                    <div class="about-heading">
-                        <h1>About</h1>
-                        <h6>Myself</h6>
-                    </div>
-
-
-                    <p>I am a third year student at Goldsmiths University, studying BSc Computer Science. In my spare time, I like to sketch fantasy style drawings. I also enjoy drawing animals; especially marine animals. The drawing below are my lastest drawing - I don't draw as much as I used to since I am studying at university and have a part time job. However,with my remaining free time I take the opputunity to draw when i can. </p>
-
-                    <p>Apart from drawing, I enjoy travelling. I have been to several countries such as Bangladesh, Oman, Germany, UAE, USA, Canada, malaysia, Singapore, Spain,Turkey, Italy and Morroco. Out of all of the countries listed, Malaysia was my favourite country because they had the nicest food and it was my first time swimming in the ocean. Now, I aspire to travel to other countries like Indonesia, japan and Iceland.  </p>
-
-                         <div class="activities-grid">
-
-                    <div class="activities-grid-item drawing">
-
-                    </div>
-
-                       <div class="activities-grid-item fox">
-
-                        </div>
-                             
-                        <div class="activities-grid-item bunny">
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-          
-            
-            
-            
-            
-            
-        </div>
-    </section>
-    
-    <section class="services1" id="services1">
-        <div class="container">
-            <div class="title-heading">
-                <h3>My skills</h3>
-                <h1>The skills that I have acquired</h1>
-                <p> These are the skills that I have deveolped over the year while studying and would like to develop further </p>
-            </div>
-            
-            <div class="activities-grid">
-<!--
-                
-                Grid items
--->
-                <div class="activities-grid-item java">
-                    <i class="icon ion-md-star"></i>
-                    <h1>JAVA</h1>
-                    <p>One of my favorite language to use. This is the main language I used within my second year of university. When starting it was one of the hardest languages for me to develop but with further research, I found that it was an enjoyable process of making applications using Java. An application that was made was a spell checker application and practicing algorithms such as the binary search tree.</p>
-                </div>
-                
-                  <div class="activities-grid-item web-development">
-                    <i class="icon ion-md-campss"></i>
-                    <h1>WEB DEVELOPMENT</h1>
-                    <p>HTML and CSS is one of the more enjoyable activity I like to participate. I enjoy making websites in my free time and improving on my CSS skills. This is because I find CSS to be the hardest as I find designing to be a long process. However, the more I practice my CSS skill I can see the drastic improvements in comparison to how I use to design my websites. </p>
-                </div>
-                
-                  <div class="activities-grid-item machine-learning">
-                    <i class="icon ion-md-bonfire"></i>
-                    <h1>MACHINE LEARNING</h1>
-                    <p>This is a new skill I am developing. I am learning from my current modules which are creative machine learning and understanding the basics of machine learning and how models are used to train the systems to identify and learn the different objects. From this, I was able to learn how I can make a game by using machine learning techniques I learned within my module. </p>
-                </div>
+            <div id="progress-bar" class="flex items-center space-x-4 text-sm font-medium">
+                <div class="text-green-600">File 6 Progress: <span id="file6-count">0</span> / 11</div>
+                <div class="text-red-600">File 7 Progress: <span id="file7-count">0</span> / 8</div>
             </div>
         </div>
-    </section>
-    
-    
-   <section class="portfolio" id="portfolio">
-            <div class="title-heading">
-                <h3>Portfolio</h3>
-                <h1>These are some of my work which you can download</h1>
-               
-            </div>
-       </section>
-          
-   
-    
-    <section class="portfolio2" id="porfolio2">
 
-        <div class="box">
-            
-            <div class="icon">01</div>
-            <div class="content">
-                <h1>Web Developement</h1>
-                <p>This is the website I have been developing over the summer of 2019, to help myself to improve on my skills. You can download the documents I made before making the website. </p>
-                <a href = "requirement spec.pdf" download>Download Here</a> 
-                
-            </div>
+        <!-- Hard Disk Grid -->
+        <div id="disk-grid" class="disk-grid mb-8">
+            <!-- Grid sectors will be generated by JavaScript -->
+        </div>
+
+        <!-- Controls -->
+        <div class="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+            <button onclick="toggleFile()" class="px-6 py-3 text-lg font-bold rounded-lg transition duration-150 ease-in-out shadow-lg bg-yellow-500 hover:bg-yellow-600 text-white">
+                Toggle to <span id="toggle-label">File 7</span>
+            </button>
+            <button onclick="checkCompletion()" class="px-6 py-3 text-lg font-bold rounded-lg transition duration-150 ease-in-out shadow-lg bg-green-600 hover:bg-green-700 text-white">
+                Check My Solution
+            </button>
         </div>
         
-        <div class="box">
-            <div class="icon">02</div>
-            <div class="content">
-                <h1>P5.js</h1>
-                <p>This is the JavaScript game that I made using the p5.js library. This is a simple game that allows you to control a character to go through different obstacles.</p>
-                 <a href = "game%20project%204.zip" download>Download Here</a> 
+        <!-- Result/Feedback Modal -->
+        <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4" onclick="closeModal()">
+            <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full" onclick="event.stopPropagation()">
+                <h3 id="modal-title" class="text-2xl font-bold mb-4 text-gray-800"></h3>
+                <p id="modal-body" class="mb-6 text-gray-600"></p>
+                <button onclick="closeModal()" class="w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700">Close</button>
             </div>
         </div>
+
+    </div>
+
+    <script>
+        // Grid setup based on the worksheet
+        // 0 = Empty, 1-5 = Fixed File, 6 = New File 6, 7 = New File 7
+        const initialGrid = [
+            [0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2],
+            [2, 2, 2, 2, 2, 0, 0, 0, 3, 3, 3],
+            [3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3],
+            [0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4],
+            [5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+
+        // Constants
+        const GRID_ROWS = initialGrid.length;
+        const GRID_COLS = initialGrid[0].length;
+        const TARGET_6 = 11;
+        const TARGET_7 = 8;
+
+        // State variables
+        let currentGrid = JSON.parse(JSON.stringify(initialGrid)); // Deep copy
+        let currentFile = 6;
+        let file6Count = 0;
+        let file7Count = 0;
+
+        const gridElement = document.getElementById('disk-grid');
         
-        <div class="box">
-            <div class="icon">03</div>
-            <div class="content">
-                <h1>Machine Learning</h1>
-                <p>This is a machine learning game that I made using the P5.js library that allows the game to be controlled using your hands by using an up and down motion instead of the keyboard.</p>
-                    <a href = "Final%20Final.zip" download>Download Here</a> 
-            </div>
-        </div>
-    </section>
-    
-       n>
+        // Utility function to get cell classes based on content
+        function getSectorClasses(content) {
+            if (content >= 1 && content <= 5) return 'sector-fixed';
+            if (content === 6) return 'sector-file6';
+            if (content === 7) return 'sector-file7';
+            return 'sector-empty';
+        }
 
-    
-    
-       <section class="contact" id="contact">
-           
-        <div class="container">
-            <div class="section-heading">
-                <h1>Contact</h1>
-                <h2>Email me if you want to know more about me</h2>
-            </div>
-             <form action = "https://formspree.io/hana16uddin@gmail.com"  method  = "POST">
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            <input type = "email" name = "email" placeholder = "Your Email">
-            <textarea id = "textarea" name = "message" placeholder ="your message"></textarea>
-                 
-            <script>('text area').autoResize();</script><br><br><input type = "submit"/>
-            </form>
-           </div>
-    </section> 
-    
-<!--
-  
-        <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="name" placeholder="Enter your email!" required>
-                <label for="subject">Your enquires:</label>
-                <textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-                <input type="submit" value="Submit">
-    
--->
-    
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="main.js"></script>
+        // Renders the entire grid based on the currentGrid state
+        function renderGrid() {
+            gridElement.innerHTML = '';
+            for (let r = 0; r < GRID_ROWS; r++) {
+                for (let c = 0; c < GRID_COLS; c++) {
+                    const content = currentGrid[r][c];
+                    const div = document.createElement('div');
+                    div.className = `sector ${getSectorClasses(content)}`;
+                    div.textContent = content > 0 ? content : '';
+                    div.dataset.row = r;
+                    div.dataset.col = c;
+                    
+                    // Only attach click listener to empty sectors
+                    if (content === 0) {
+                        div.onclick = handleSectorClick;
+                        div.title = `Click to store File ${currentFile} here`;
+                    }
+                    gridElement.appendChild(div);
+                }
+            }
+            updateProgress();
+        }
 
+        // Handles user click on an empty sector
+        function handleSectorClick(event) {
+            const sector = event.target;
+            const r = parseInt(sector.dataset.row);
+            const c = parseInt(sector.dataset.col);
+
+            // Check if user is trying to overwrite their own placement
+            if (currentGrid[r][c] === currentFile) {
+                // Remove placement (un-do)
+                currentGrid[r][c] = 0;
+                if (currentFile === 6) {
+                    file6Count--;
+                } else if (currentFile === 7) {
+                    file7Count--;
+                }
+            } 
+            // Check if user is trying to place a new file
+            else if (currentGrid[r][c] === 0) {
+                // Place the current file
+                currentGrid[r][c] = currentFile;
+                if (currentFile === 6) {
+                    file6Count++;
+                } else if (currentFile === 7) {
+                    file7Count++;
+                }
+            } else if (currentGrid[r][c] !== 0) {
+                // If it's the other file type, warn the user
+                const otherFile = currentFile === 6 ? 7 : 6;
+                if (currentGrid[r][c] === otherFile) {
+                    showModal('Wait!', `This sector is currently allocated to File ${otherFile}. Click the 'Toggle File' button if you want to modify that file's placement.`);
+                }
+            }
+            
+            renderGrid();
+        }
+
+        // Toggles between placing File 6 and File 7
+        function toggleFile() {
+            currentFile = currentFile === 6 ? 7 : 6;
+            document.getElementById('current-file-display').textContent = `File ${currentFile}`;
+            document.getElementById('required-sectors').textContent = currentFile === 6 ? TARGET_6 : TARGET_7;
+            document.getElementById('toggle-label').textContent = currentFile === 6 ? 'File 7' : 'File 6';
+            renderGrid(); // Rerender to update tooltips/titles
+        }
+
+        // Updates the progress bar counts
+        function updateProgress() {
+            document.getElementById('file6-count').textContent = file6Count;
+            document.getElementById('file7-count').textContent = file7Count;
+        }
+
+        // Checks if the user has successfully met the sector requirements
+        function checkCompletion() {
+            const container = document.querySelector('.container');
+            if (file6Count === TARGET_6 && file7Count === TARGET_7) {
+                container.classList.add('flash-success');
+                showModal('Success!', 'Great job! You successfully allocated 11 sectors to File 6 and 8 sectors to File 7. This exercise perfectly demonstrates how fragmentation forces files to be split into scattered blocks!');
+            } else {
+                container.classList.add('flash-error');
+                let message = 'Your file allocation is incorrect: ';
+                if (file6Count !== TARGET_6) {
+                    message += `File 6 needs ${TARGET_6} sectors (you used ${file6Count}). `;
+                }
+                if (file7Count !== TARGET_7) {
+                    message += `File 7 needs ${TARGET_7} sectors (you used ${file7Count}).`;
+                }
+                showModal('Try Again!', message);
+            }
+
+            // Remove flash classes after animation
+            setTimeout(() => {
+                container.classList.remove('flash-success', 'flash-error');
+            }, 500);
+        }
+
+        // Modal functions
+        function showModal(title, body) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').textContent = body;
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').classList.remove('flex');
+        }
+
+        // Initialization
+        window.onload = renderGrid;
+    </script>
 </body>
 </html>
